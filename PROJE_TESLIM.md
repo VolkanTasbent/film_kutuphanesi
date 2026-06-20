@@ -46,7 +46,7 @@ Bu dosya, eğitim programı proje yönergesindeki tüm maddelerin karşılandı�
 
 **GitHub Repository Linki:**
 ```
-https://github.com/KULLANICI_ADINIZ/film-kutuphanesi
+https://github.com/VolkanTasbent/film_kutuphanesi
 ```
 
 **Canlı Site (Netlify) Linki:**

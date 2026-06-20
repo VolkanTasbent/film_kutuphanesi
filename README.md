@@ -53,7 +53,7 @@ film-kutuphanesi/
 ## Kurulum
 
 ```bash
-git clone https://github.com/KULLANICI_ADINIZ/film-kutuphanesi.git
+git clone https://github.com/VolkanTasbent/film_kutuphanesi.git
 cd film-kutuphanesi
 npm install
 npm run dev
