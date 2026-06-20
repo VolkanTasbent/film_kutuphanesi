@@ -1,19 +1,11 @@
 # Film Kütüphanesi
 
-Web Geliştirme eğitimi kapsamında hazırlanan **Vue 3 + Vite + Tailwind CSS** tabanlı kişisel film takip uygulaması.
+Vue 3 ile geliştirilmiş kişisel film takip uygulaması. İzlenecek, izlenen ve favori filmlerinizi ekleyebilir, listeleyebilir, güncelleyebilir ve silebilirsiniz.
 
-Örnek projelerden farklı olarak bu uygulama bir TODO listesi değil; izlenecek, izlenen ve favori filmlerinizi yönetmenizi sağlayan bir **Film Kütüphanesi**dir.
+**Canlı Site:** [https://film-kutuphanesi-eight.vercel.app/](https://film-kutuphanesi-eight.vercel.app/)  
+**GitHub:** [https://github.com/VolkanTasbent/film_kutuphanesi](https://github.com/VolkanTasbent/film_kutuphanesi)
 
-## Özellikler
-
-- **Ekle:** Yeni film kaydı oluşturma
-- **Listele:** Tüm filmleri kart görünümünde listeleme
-- **Güncelle:** Mevcut film bilgilerini düzenleme
-- **Sil:** Film kaydını silme
-- **LocalStorage:** Veriler tarayıcıda kalıcı olarak saklanır
-- **Filtreleme:** Durum, tür ve arama ile filtreleme
-
-## Teknolojiler
+## Kullanılan Teknolojiler
 
 | Alan | Seçim |
 |------|-------|
@@ -21,7 +13,16 @@ Web Geliştirme eğitimi kapsamında hazırlanan **Vue 3 + Vite + Tailwind CSS**
 | Build Tool | Vite |
 | CSS | Tailwind CSS 4 |
 | Veri Saklama | LocalStorage |
-| Yayın | Vercel veya Netlify |
+| Yayın | Vercel |
+
+## Özellikler
+
+- **Ekle** — Yeni film kaydı oluşturma
+- **Listele** — Filmleri kart görünümünde listeleme
+- **Güncelle** — Mevcut film bilgilerini düzenleme
+- **Sil** — Film kaydını silme
+- **LocalStorage** — Veriler tarayıcıda saklanır
+- **Filtreleme** — Durum, tür ve arama ile filtreleme
 
 ## Proje Yapısı
 
@@ -31,22 +32,14 @@ film-kutuphanesi/
 ├── screenshots/
 ├── src/
 │   ├── Components/
-│   │   ├── AppHeader.vue
-│   │   ├── FilmCard.vue
-│   │   ├── FilmForm.vue
-│   │   ├── FilmList.vue
-│   │   └── StatsBar.vue
 │   ├── Pages/
-│   │   └── HomePage.vue
 │   ├── Interfaces/
-│   │   └── Film.js
 │   ├── composables/
-│   │   └── useFilms.js
 │   ├── App.vue
 │   ├── main.js
 │   └── style.css
 ├── index.html
-├── netlify.toml
+├── vercel.json
 └── package.json
 ```
 
@@ -54,12 +47,12 @@ film-kutuphanesi/
 
 ```bash
 git clone https://github.com/VolkanTasbent/film_kutuphanesi.git
-cd film-kutuphanesi
+cd film_kutuphanesi
 npm install
 npm run dev
 ```
 
-Uygulama varsayılan olarak `http://localhost:5173` adresinde açılır.
+Uygulama `http://localhost:5173` adresinde açılır.
 
 ## Build
 
@@ -72,46 +65,13 @@ npm run preview
 
 ![Film Kütüphanesi Ana Ekran](./screenshots/ana-ekran.png)
 
-## Yönerge Uyumu
+## Proje Teslim Linkleri
 
-Bu proje eğitim programı **Web Geliştirme / Javascript** yönergesindeki tüm maddeleri karşılar:
-
-| Gereksinim | Karşılama |
-|------------|-----------|
-| VueJS (modern JS kütüphanesi) | Vue 3 + Vite |
-| LocalStorage | `useFilms.js` composable |
-| Netlify uyumlu çerçeve | Vite + `netlify.toml` |
-| Components / Pages / Interfaces | `src/` altında ayrı klasörler |
-| Tailwind CSS | Tailwind CSS 4 |
-| CRUD (Ekle, Listele, Güncelle, Sil) | Tam destek |
-| Ekran görüntüsü | `screenshots/ana-ekran.png` |
-| GitHub public repo | Teslim adımları aşağıda |
-| Netlify yayını | Teslim adımları aşağıda |
-
-Detaylı teslim bilgileri için [`PROJE_TESLIM.md`](./PROJE_TESLIM.md) dosyasına bakın.
-
-## GitHub'a Yükleme
-
-```bash
-cd ~/development/film-kutuphanesi
-git commit -m "Film Kütüphanesi - Vue 3 CRUD eğitim projesi"
-gh auth login
-gh repo create film-kutuphanesi --public --source=. --remote=origin --push
-```
-
-## Vercel'a Yayınlama (Önerilen)
-
-1. [vercel.com](https://vercel.com) → GitHub ile giriş yap
-2. **Add New Project** → `film_kutuphanesi` reposunu seç
-3. Framework: **Vite** (otomatik algılanır)
-4. Build: `npm run build` · Output: `dist`
-5. **Deploy** → verilen URL'yi teslim formuna yaz
-
-Alternatif (Netlify):
-
-1. [Netlify](https://www.netlify.com/) → GitHub reposunu bağla
-2. Build: `npm run build` · Publish: `dist`
+| Alan | Link |
+|------|------|
+| GitHub | https://github.com/VolkanTasbent/film_kutuphanesi |
+| Canlı Site (Vercel) | https://film-kutuphanesi-eight.vercel.app/ |
 
 ## Geliştirici
 
-Eğitim projesi — Web Geliştirme / Javascript
+Volkan Taşbent — Web Geliştirme / Javascript Eğitim Projesi
