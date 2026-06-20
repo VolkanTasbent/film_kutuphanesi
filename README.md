@@ -21,7 +21,7 @@ Web Geliştirme eğitimi kapsamında hazırlanan **Vue 3 + Vite + Tailwind CSS**
 | Build Tool | Vite |
 | CSS | Tailwind CSS 4 |
 | Veri Saklama | LocalStorage |
-| Yayın | Netlify |
+| Yayın | Vercel veya Netlify |
 
 ## Proje Yapısı
 
@@ -99,21 +99,18 @@ gh auth login
 gh repo create film-kutuphanesi --public --source=. --remote=origin --push
 ```
 
-## Netlify'a Yayınlama
+## Vercel'a Yayınlama (Önerilen)
 
-1. [Netlify](https://www.netlify.com/) → **Add new site → Import an existing project**
-2. GitHub reposunu bağlayın
-3. Build: `npm run build` · Publish: `dist`
-4. Deploy sonrası URL'yi teslim formuna ekleyin
+1. [vercel.com](https://vercel.com) → GitHub ile giriş yap
+2. **Add New Project** → `film_kutuphanesi` reposunu seç
+3. Framework: **Vite** (otomatik algılanır)
+4. Build: `npm run build` · Output: `dist`
+5. **Deploy** → verilen URL'yi teslim formuna yaz
 
-Alternatif (Netlify CLI):
+Alternatif (Netlify):
 
-```bash
-npm install -g netlify-cli
-npm run build
-netlify login
-netlify deploy --prod --dir=dist
-```
+1. [Netlify](https://www.netlify.com/) → GitHub reposunu bağla
+2. Build: `npm run build` · Publish: `dist`
 
 ## Geliştirici
 
