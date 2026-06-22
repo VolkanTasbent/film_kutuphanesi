@@ -10,7 +10,7 @@ defineProps({
   },
 })
 
-defineEmits(['edit', 'back'])
+defineEmits(['edit', 'back', 'welcome'])
 
 const posterErrors = ref({})
 
@@ -33,16 +33,28 @@ const statusStyles = {
 <template>
   <div>
     <main class="mx-auto max-w-6xl px-4 py-8">
-      <button
-        type="button"
-        class="mb-6 inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-800/60 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-violet-400 hover:text-violet-200"
-        @click="$emit('back')"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-        </svg>
-        Ana Sayfaya Dön
-      </button>
+      <div class="mb-6 flex flex-wrap gap-3">
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-800/60 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-violet-400 hover:text-violet-200"
+          @click="$emit('back')"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Ana Sayfaya Dön
+        </button>
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 rounded-xl border border-violet-500/40 bg-violet-500/5 px-4 py-2.5 text-sm font-semibold text-violet-200 transition hover:border-violet-400 hover:bg-violet-500/15"
+          @click="$emit('welcome')"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+          Giriş Ekranına Dön
+        </button>
+      </div>
 
       <div class="mb-6">
         <h2 class="text-xl font-semibold text-white">Film Koleksiyonum</h2>

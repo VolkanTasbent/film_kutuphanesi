@@ -17,7 +17,6 @@ const { films, startEditing } = useFilms()
 
 const collectionFilms = computed(() => films.value)
 const filmCount = computed(() => films.value.length)
-const canGoBack = computed(() => currentPage.value !== 'home')
 
 function enterApp(destination = 'home') {
   sessionStorage.setItem(WELCOME_KEY, '1')
@@ -25,6 +24,12 @@ function enterApp(destination = 'home') {
   currentPage.value = destination
   showWelcome.value = false
   window.scrollTo({ top: 0 })
+}
+
+function goToWelcome() {
+  previousPage.value = currentPage.value
+  showWelcome.value = true
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 function navigate(page) {
@@ -64,20 +69,22 @@ function handleCollectionEdit(id) {
     <div v-if="!showWelcome" class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.18),_transparent_35%),linear-gradient(to_bottom,_#020617,_#0f172a)]">
       <AppHeader
         :active-page="currentPage"
-        :can-go-back="canGoBack"
         @navigate="navigate"
         @back="goBack"
+        @welcome="goToWelcome"
       />
 
       <HomePage
         v-if="currentPage === 'home'"
         ref="homePageRef"
+        @welcome="goToWelcome"
       />
       <CollectionPage
         v-else
         :films="collectionFilms"
         @edit="handleCollectionEdit"
         @back="goBack"
+        @welcome="goToWelcome"
       />
     </div>
   </Transition>
