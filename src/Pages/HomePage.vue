@@ -6,6 +6,8 @@ import FilmForm from '@/Components/FilmForm.vue'
 import FilmList from '@/Components/FilmList.vue'
 import { useFilms } from '@/composables/useFilms'
 
+const emit = defineEmits(['navigate'])
+
 const {
   films,
   editingId,
@@ -37,11 +39,20 @@ function handleDelete(id) {
   const confirmed = window.confirm(`"${film.title}" filmini silmek istediğinize emin misiniz?`)
   if (confirmed) deleteFilm(id)
 }
+
+function handleNavigate(page) {
+  emit('navigate', page)
+}
+
+defineExpose({
+  films,
+  startEditing,
+})
 </script>
 
 <template>
   <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.18),_transparent_35%),linear-gradient(to_bottom,_#020617,_#0f172a)]">
-    <AppHeader />
+    <AppHeader active-page="home" @navigate="handleNavigate" />
 
     <main class="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8">
       <StatsBar :stats="stats" />
@@ -67,7 +78,8 @@ function handleDelete(id) {
     </main>
 
     <footer class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-      Film Kütüphanesi · Vue 3 CRUD Projesi · LocalStorage
+      © 2025 Film Kütüphanesi. Tüm hakları saklıdır.
+      <span class="text-violet-400"> ♥</span>
     </footer>
   </div>
 </template>

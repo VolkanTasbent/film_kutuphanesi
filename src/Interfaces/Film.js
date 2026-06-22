@@ -8,6 +8,7 @@
  * @property {number} rating
  * @property {'izlenecek' | 'izlendi' | 'favori'} status
  * @property {string} note
+ * @property {string} posterUrl
  * @property {string} createdAt
  */
 
@@ -24,15 +25,18 @@ export const STATUS_LABELS = {
 /** @type {string[]} */
 export const GENRES = [
   'Aksiyon',
+  'Animasyon',
+  'Animasyon/Fantastik',
+  'Belgesel',
   'Bilim Kurgu',
+  'Bilim Kurgu/Aksiyon',
+  'Bilim Kurgu/Macera',
   'Drama',
   'Fantastik',
   'Gerilim',
   'Komedi',
   'Korku',
   'Romantik',
-  'Animasyon',
-  'Belgesel',
 ]
 
 export const STORAGE_KEY = 'film-kutuphanesi-data'
@@ -45,11 +49,12 @@ export function createEmptyFilm() {
     id: '',
     title: '',
     director: '',
-    genre: GENRES[0],
+    genre: '',
     year: new Date().getFullYear(),
     rating: 5,
     status: 'izlenecek',
     note: '',
+    posterUrl: '',
     createdAt: new Date().toISOString(),
   }
 }

@@ -18,9 +18,12 @@ Vue 3 ile geliştirilmiş kişisel film takip uygulaması. İzlenecek, izlenen v
 ## Özellikler
 
 - **Ekle** — Yeni film kaydı oluşturma
-- **Listele** — Filmleri kart görünümünde listeleme
+- **Listele** — Filmleri posterli kart görünümünde listeleme
 - **Güncelle** — Mevcut film bilgilerini düzenleme
 - **Sil** — Film kaydını silme
+- **Film Koleksiyonum** — Tüm filmleri poster galerisi olarak görüntüleme
+- **Film Posterleri** — Her film için otomatik veya özel poster görseli
+- **İstatistikler** — Toplam, izlenecek, izlendi ve favori sayıları
 - **LocalStorage** — Veriler tarayıcıda saklanır
 - **Filtreleme** — Durum, tür ve arama ile filtreleme
 
