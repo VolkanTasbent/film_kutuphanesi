@@ -10,26 +10,43 @@ const WELCOME_KEY = 'film-kutuphanesi-welcome-seen'
 
 const showWelcome = ref(!sessionStorage.getItem(WELCOME_KEY))
 const currentPage = ref('home')
+const previousPage = ref(null)
 const homePageRef = ref(null)
 
 const { films, startEditing } = useFilms()
 
 const collectionFilms = computed(() => films.value)
 const filmCount = computed(() => films.value.length)
+const canGoBack = computed(() => currentPage.value !== 'home')
 
 function enterApp(destination = 'home') {
   sessionStorage.setItem(WELCOME_KEY, '1')
+  previousPage.value = destination === 'collection' ? 'home' : null
   currentPage.value = destination
   showWelcome.value = false
   window.scrollTo({ top: 0 })
 }
 
 function navigate(page) {
+  if (page === currentPage.value) return
+  previousPage.value = currentPage.value
   currentPage.value = page
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
+function goBack() {
+  if (previousPage.value) {
+    const target = previousPage.value
+    previousPage.value = currentPage.value
+    currentPage.value = target
+  } else {
+    currentPage.value = 'home'
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 function handleCollectionEdit(id) {
+  previousPage.value = 'collection'
   startEditing(id)
   currentPage.value = 'home'
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -45,7 +62,12 @@ function handleCollectionEdit(id) {
 
   <Transition name="app-fade">
     <div v-if="!showWelcome" class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.18),_transparent_35%),linear-gradient(to_bottom,_#020617,_#0f172a)]">
-      <AppHeader :active-page="currentPage" @navigate="navigate" />
+      <AppHeader
+        :active-page="currentPage"
+        :can-go-back="canGoBack"
+        @navigate="navigate"
+        @back="goBack"
+      />
 
       <HomePage
         v-if="currentPage === 'home'"
@@ -55,6 +77,7 @@ function handleCollectionEdit(id) {
         v-else
         :films="collectionFilms"
         @edit="handleCollectionEdit"
+        @back="goBack"
       />
     </div>
   </Transition>
