@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import WelcomePage from '@/Pages/WelcomePage.vue'
+import AppHeader from '@/Components/AppHeader.vue'
 import HomePage from '@/Pages/HomePage.vue'
 import CollectionPage from '@/Pages/CollectionPage.vue'
 import { useFilms } from '@/composables/useFilms'
@@ -43,16 +44,16 @@ function handleCollectionEdit(id) {
   />
 
   <Transition name="app-fade">
-    <div v-if="!showWelcome">
+    <div v-if="!showWelcome" class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.18),_transparent_35%),linear-gradient(to_bottom,_#020617,_#0f172a)]">
+      <AppHeader :active-page="currentPage" @navigate="navigate" />
+
       <HomePage
         v-if="currentPage === 'home'"
         ref="homePageRef"
-        @navigate="navigate"
       />
       <CollectionPage
         v-else
         :films="collectionFilms"
-        @navigate="navigate"
         @edit="handleCollectionEdit"
       />
     </div>

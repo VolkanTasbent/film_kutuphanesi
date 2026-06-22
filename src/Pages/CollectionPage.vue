@@ -10,7 +10,7 @@ defineProps({
   },
 })
 
-defineEmits(['navigate', 'edit'])
+defineEmits(['edit'])
 
 const posterErrors = ref({})
 
@@ -31,28 +31,13 @@ const statusStyles = {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.18),_transparent_35%),linear-gradient(to_bottom,_#020617,_#0f172a)]">
-    <header class="border-b border-violet-500/20 bg-slate-950/90 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-5">
-        <div class="flex items-center gap-3">
-          <button
-            type="button"
-            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition hover:border-violet-400 hover:text-violet-300"
-            @click="$emit('navigate', 'home')"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-            </svg>
-          </button>
-          <div>
-            <h1 class="text-2xl font-bold text-white">Film Koleksiyonum</h1>
-            <p class="text-sm text-slate-400">{{ films.length }} film</p>
-          </div>
-        </div>
-      </div>
-    </header>
-
+  <div>
     <main class="mx-auto max-w-6xl px-4 py-8">
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold text-white">Film Koleksiyonum</h2>
+        <p class="mt-1 text-sm text-slate-400">{{ films.length }} film</p>
+      </div>
+
       <div v-if="films.length" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <article
           v-for="film in films"

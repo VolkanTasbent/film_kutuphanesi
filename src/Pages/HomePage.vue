@@ -1,12 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-import AppHeader from '@/Components/AppHeader.vue'
 import StatsBar from '@/Components/StatsBar.vue'
 import FilmForm from '@/Components/FilmForm.vue'
 import FilmList from '@/Components/FilmList.vue'
 import { useFilms } from '@/composables/useFilms'
-
-const emit = defineEmits(['navigate'])
 
 const {
   films,
@@ -40,10 +37,6 @@ function handleDelete(id) {
   if (confirmed) deleteFilm(id)
 }
 
-function handleNavigate(page) {
-  emit('navigate', page)
-}
-
 defineExpose({
   films,
   startEditing,
@@ -51,9 +44,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.18),_transparent_35%),linear-gradient(to_bottom,_#020617,_#0f172a)]">
-    <AppHeader active-page="home" @navigate="handleNavigate" />
-
+  <div>
     <main class="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8">
       <StatsBar :stats="stats" />
 
